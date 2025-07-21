@@ -31,7 +31,22 @@ printf("[SKILL] Adding %s in getSkillPath()\n" dir||"nilDir?")
 defun(menu () loadi("menu.il"))
 ;load("emacs_ipcPipe.il");<== in the menu or not ...
 load("ineed.il")
-ineed('(noiseSummary RmBannerItemByName))
+
+; Load error handler for better debugging
+load("errorHandler.il")
+
+; Phase 1: Load critical infrastructure functions (always needed)
+printf("[SKILL] Loading core infrastructure functions...\n")
+ineed('(getInstTermPoint bBoxHeight bBoxWidth createPinLPP itos bus2list pointInbBox lay2schName))
+
+; Phase 2: Load utility functions (commonly used)
+printf("[SKILL] Loading utility functions...\n") 
+ineed('(noiseSummary RmBannerItemByName bBox2array areaBox))
+
+; Phase 3: Load new missing functions we just created
+printf("[SKILL] Loading newly created functions...\n")
+; bus2list, pointInbBox, lay2schName already loaded above
+
 RmBannerItemByName('trEdPulldownMenu)
 
 files='("genBox" "addCell" "schematic2symbol" "getInstTermPoint" "getPropList" "vdcGen" "abBinaryStrToInt" "terminalPinsMap" "terminal2pin" "ocnPrint2list" "createPinLPP" "schCreatePinEd" "generateAllPins" "genPinMaster" "generatePin2place" "updateCellviews" "whereExistCell3" "magAC" "sortOPpattern" "gplinFit" "shout")

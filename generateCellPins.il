@@ -9,7 +9,7 @@ printf("possibly run : \nineed('lpp2Set) ;<= afterwards\n")
 
 ineed('(getInstTermPointLPP createPinLPP textDisplay2label metalPin2pinDrawing bus2flat bus2list lay2schName createPinLPPcv schInst2mapTable bBox_lpp_check))
 
-; ineed('generateCellPins t)
+; Fixed: Removed self-referential dependency
 
 ;______________________________________________________________________________
 defun(generateCellPins (@optional (cv t)(insts nil)(force nil))

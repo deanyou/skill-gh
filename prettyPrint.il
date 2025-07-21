@@ -1,5 +1,5 @@
 ;; copyleft ebecheto
-; ineed('prettyPrint)
+; Fixed: Removed self-referential dependency
 (procedure prettyPrint(@optional (cvId nil) (imprimante nil) (hierarchy nil))
 let( (cmd cvId i pt filename eko disp)
 unless(imprimante imprimante = "lprdcrv")
